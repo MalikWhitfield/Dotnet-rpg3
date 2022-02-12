@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "xyWkPmQiQT+yi5clj0/Y+gjwsNVX1iYe3lLR/n5N6BsoMcUi26RD88kBnVTO7Xyb3gjKZGKQxCjjth+DWOCdFg==",
+  "dgSpecHash": "/6oisJGDkvWT+c6poWTNPUQa/MPBvCGqR//jDP8mep0YKLnc36LSYgSlbL4HsK9GBStb6I/U6gqy0cnhapSNkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\MalikWhitfield\\source\\repos\\Learning\\Dotnet-rpg3\\Dotnet-rpg3.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.bcl\\1.1.8\\microsoft.bcl.1.1.8.nupkg.sha512",
+    "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.bcl.async\\1.0.168\\microsoft.bcl.async.1.0.168.nupkg.sha512",
+    "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.bcl.build\\1.0.14\\microsoft.bcl.build.1.0.14.nupkg.sha512",
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\MalikWhitfield\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
@@ -123,6 +126,26 @@
       "warningLevel": 1,
       "message": "Dotnet-rpg3 depends on Swashbuckle.AspNetCore.Filters (>= 5.6.3) but Swashbuckle.AspNetCore.Filters 5.6.3 was not found. An approximate best match of Swashbuckle.AspNetCore.Filters 6.0.0 was resolved.",
       "libraryId": "Swashbuckle.AspNetCore.Filters",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Bcl 1.1.8' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Bcl",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Bcl.Async 1.0.168' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Bcl.Async",
       "targetGraphs": [
         "net5.0"
       ]

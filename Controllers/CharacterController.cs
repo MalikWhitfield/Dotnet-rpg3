@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using Dotnet_rpg3.Models;
+using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
-using Dotnet_rpg3.Services.CharacterService;
 using System.Threading.Tasks;
+using Dotnet_rpg3.Models;
+using Dotnet_rpg3.Services.CharacterService;
 
 namespace Dotnet_rpg3.Controllers
 {
