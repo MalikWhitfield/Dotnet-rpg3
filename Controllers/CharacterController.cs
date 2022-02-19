@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dotnet_rpg3.Models;
 using Dotnet_rpg3.Services.CharacterService;
+using Dotnet_rpg3.DTOs.Character;
+using AutoMapper;
 
 namespace Dotnet_rpg3.Controllers
 {
@@ -13,9 +15,11 @@ namespace Dotnet_rpg3.Controllers
     public class CharacterController : ControllerBase
     {
         ICharacterService _characterService;
-        public CharacterController(ICharacterService characterService)
+        private readonly IMapper _mapper;
+        public CharacterController(ICharacterService characterService, IMapper mapper)
         {
             _characterService = characterService;
+            _mapper = mapper;
         }
 
         private static List<Character> characters = new List<Character>{
@@ -28,19 +32,19 @@ namespace Dotnet_rpg3.Controllers
         };
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse<Character>>> GetAllCharacters()
+        public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> GetAllCharacters()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<Character>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> GetById(int id)
         {
             return Ok(await _characterService.GetById(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<Character>>>> CreateCharacter(Character newCharacter)
+        public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> CreateCharacter(AddCharacterDTO newCharacter)
         {
             return Ok(await _characterService.AddCharacter(newCharacter));
         }

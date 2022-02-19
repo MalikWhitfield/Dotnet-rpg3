@@ -14,7 +14,7 @@
         "outputPath": "C:\\Users\\MalikWhitfield\\source\\repos\\Learning\\Dotnet-rpg3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
@@ -49,9 +49,23 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
-            "Microsoft.Bcl.Async": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[1.0.168, )"
+              "version": "[5.0.1, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[5.0.1, )",
+              "noWarn": [
+                "NU1605"
+              ]
+            },
+            "Microsoft.Build.Framework": {
+              "target": "Package",
+              "version": "[16.8.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

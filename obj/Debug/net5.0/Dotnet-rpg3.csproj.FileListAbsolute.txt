@@ -1,5 +1,6 @@
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\appsettings.json
+C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\omnisharp.json
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Dotnet-rpg3.exe
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Dotnet-rpg3.deps.json
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Dotnet-rpg3.runtimeconfig.json
@@ -10,6 +11,9 @@ C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Dotne
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Humanizer.dll
+C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.Build.Framework.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -66,6 +70,3 @@ C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\obj\Debug\net5.0\Dotne
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\obj\Debug\net5.0\ref\Dotnet-rpg3.dll
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\obj\Debug\net5.0\Dotnet-rpg3.pdb
 C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\obj\Debug\net5.0\Dotnet-rpg3.genruntimeconfig.cache
-C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.Threading.Tasks.Extensions.Desktop.dll
-C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.Threading.Tasks.Extensions.dll
-C:\Users\MalikWhitfield\source\repos\Learning\Dotnet-rpg3\bin\Debug\net5.0\Microsoft.Threading.Tasks.dll

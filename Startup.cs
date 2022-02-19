@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Dotnet_rpg3.Services.CharacterService;
 using Dotnet_rpg3.Services.AthleteService;
-
+using AutoMapper;
 namespace Dotnet_rpg3
 {
     public class Startup
@@ -36,6 +36,7 @@ namespace Dotnet_rpg3
             });
             services.AddScoped<ICharacterService, CharacterService>();
             services.AddScoped<IAthleteService, AthleteService>();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
