@@ -1,6 +1,6 @@
 namespace Dotnet_rpg3.Models.Enums
 {
-    public enum Event
+    public enum EventGroup
     {
         Sprints,
         Hurdles,

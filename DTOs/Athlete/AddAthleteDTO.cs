@@ -8,6 +8,6 @@ namespace Dotnet_rpg3.DTOs.Athlete
         public string LAstName { get; set; }
         public Year Year { get; set; }
         public string Bio { get; set; }
-        public Event Event { get; set; }
+        public EventGroup Event { get; set; }
     }
 }
