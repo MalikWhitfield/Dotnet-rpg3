@@ -20,15 +20,6 @@ namespace Dotnet_rpg3.Controllers
             _mapper = mapper;
         }
 
-        private static List<Character> characters = new List<Character>{
-            new Character(),
-            new Character()
-            {
-                CharacterId = 1,
-                Name = "Ni"
-            }
-        };
-
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<CharacterDTO>>> GetAllCharacters()
         {
