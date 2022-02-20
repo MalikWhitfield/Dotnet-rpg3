@@ -20,14 +20,6 @@ namespace Dotnet_rpg3.Controllers
 
         }
 
-        private static List<AthleteDTO> Athletes = new List<AthleteDTO>{
-            new AthleteDTO(),
-            new AthleteDTO()
-            {
-                Id = 1,
-                FirstName = "Ni"
-            }
-        };
 
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<AthleteDTO>>> GetAllAthletes()

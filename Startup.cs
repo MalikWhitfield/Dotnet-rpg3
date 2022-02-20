@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using Dotnet_rpg3.Services.CharacterService;
 using Dotnet_rpg3.Services.AthleteService;
 using AutoMapper;
+using Dotnet_rpg3.Services.PracticeResultService;
+
 namespace Dotnet_rpg3
 {
     public class Startup
@@ -36,6 +38,7 @@ namespace Dotnet_rpg3
             });
             services.AddScoped<ICharacterService, CharacterService>();
             services.AddScoped<IAthleteService, AthleteService>();
+            services.AddScoped<IPracticeResultService, PracticeResultService>();
             services.AddAutoMapper(typeof(Startup));
         }
 
