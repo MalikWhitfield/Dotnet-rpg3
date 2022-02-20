@@ -20,9 +20,9 @@ namespace Dotnet_rpg3.Controllers
 
         }
 
-        private static List<GetAthleteDTO> Athletes = new List<GetAthleteDTO>{
-            new GetAthleteDTO(),
-            new GetAthleteDTO()
+        private static List<AthleteDTO> Athletes = new List<AthleteDTO>{
+            new AthleteDTO(),
+            new AthleteDTO()
             {
                 Id = 1,
                 FirstName = "Ni"
@@ -30,19 +30,19 @@ namespace Dotnet_rpg3.Controllers
         };
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse<GetAthleteDTO>>> GetAllAthletes()
+        public async Task<ActionResult<ServiceResponse<AthleteDTO>>> GetAllAthletes()
         {
             return Ok(await _athleteService.GetAll());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<GetAthleteDTO>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<AthleteDTO>>> GetById(int id)
         {
             return Ok(await _athleteService.GetById(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<GetAthleteDTO>>>> CreateAthlete(AddAthleteDTO newAthlete)
+        public async Task<ActionResult<ServiceResponse<List<AthleteDTO>>>> CreateAthlete(AddAthleteDTO newAthlete)
         {
             return Ok(await _athleteService.Create(newAthlete));
         }

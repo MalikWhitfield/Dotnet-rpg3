@@ -8,36 +8,36 @@ namespace Dotnet_rpg3.Services.AthleteService
 {
     public class AthleteService : IAthleteService
     {
-        public List<GetAthleteDTO> Athletes = new List<GetAthleteDTO> {
-            new GetAthleteDTO{
+        public List<AthleteDTO> Athletes = new List<AthleteDTO> {
+            new AthleteDTO{
                 Id = 1,
                 FirstName = "Leek"
             },
-              new GetAthleteDTO{
+              new AthleteDTO{
                 Id = 2,
                 FirstName = "Ni"
             }
         };
 
-        public async Task<ServiceResponse<List<GetAthleteDTO>>> GetAll()
+        public async Task<ServiceResponse<List<AthleteDTO>>> GetAll()
         {
-            var serviceResponse = new ServiceResponse<List<GetAthleteDTO>>();
+            var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
             serviceResponse.Data = Athletes;
 
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetAthleteDTO>> GetById(int id)
+        public async Task<ServiceResponse<AthleteDTO>> GetById(int id)
         {
-            var serviceResponse = new ServiceResponse<GetAthleteDTO>();
+            var serviceResponse = new ServiceResponse<AthleteDTO>();
             serviceResponse.Data = Athletes.FirstOrDefault(c => c.Id == id);
 
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetAthleteDTO>>> Create(AddAthleteDTO newAthlete)
+        public async Task<ServiceResponse<List<AthleteDTO>>> Create(AddAthleteDTO newAthlete)
         {
-            var serviceResponse = new ServiceResponse<List<GetAthleteDTO>>();
+            var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
             // Athletes.Add(newAthlete);
 
             serviceResponse.Data = Athletes;
@@ -46,9 +46,9 @@ namespace Dotnet_rpg3.Services.AthleteService
         }
 
 
-        public async Task<ServiceResponse<List<GetAthleteDTO>>> Delete(int id)
+        public async Task<ServiceResponse<List<AthleteDTO>>> Delete(int id)
         {
-            var serviceResponse = new ServiceResponse<List<GetAthleteDTO>>();
+            var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
             serviceResponse.Data = Athletes;
 
             return serviceResponse;

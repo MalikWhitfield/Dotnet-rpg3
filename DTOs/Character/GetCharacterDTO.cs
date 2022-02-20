@@ -2,7 +2,7 @@ using Dotnet_rpg3.Models.Enums;
 
 namespace Dotnet_rpg3.DTOs.Character
 {
-    public class GetCharacterDTO
+    public class CharacterDTO
     {
         public int CharacterId { get; set; }
         public string Name { get; set; } = "malik";

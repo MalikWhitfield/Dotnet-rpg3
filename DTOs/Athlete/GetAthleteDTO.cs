@@ -1,7 +1,7 @@
 using Dotnet_rpg3.Models.Enums;
 namespace Dotnet_rpg3.DTOs.Athlete
 {
-    public class GetAthleteDTO
+    public class AthleteDTO
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

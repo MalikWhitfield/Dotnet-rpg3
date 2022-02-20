@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Dotnet_rpg3.Models;
 using Dotnet_rpg3.Services.CharacterService;
@@ -32,19 +30,19 @@ namespace Dotnet_rpg3.Controllers
         };
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> GetAllCharacters()
+        public async Task<ActionResult<ServiceResponse<CharacterDTO>>> GetAllCharacters()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<GetCharacterDTO>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<CharacterDTO>>> GetById(int id)
         {
             return Ok(await _characterService.GetById(id));
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<GetCharacterDTO>>>> CreateCharacter(AddCharacterDTO newCharacter)
+        public async Task<ActionResult<ServiceResponse<List<CharacterDTO>>>> CreateCharacter(AddCharacterDTO newCharacter)
         {
             return Ok(await _characterService.AddCharacter(newCharacter));
         }
