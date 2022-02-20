@@ -10,11 +10,11 @@ namespace Dotnet_rpg3.Services.CharacterService
     {
         public List<GetCharacterDTO> characters = new List<GetCharacterDTO> {
             new GetCharacterDTO{
-                Id = 1,
+                CharacterId = 1,
                 Name = "Leek"
             },
               new GetCharacterDTO{
-                Id = 2,
+                CharacterId = 2,
                 Name = "Ni"
             }
         };
@@ -47,7 +47,7 @@ namespace Dotnet_rpg3.Services.CharacterService
         public async Task<ServiceResponse<GetCharacterDTO>> GetById(int id)
         {
             var serviceResponse = new ServiceResponse<GetCharacterDTO>();
-            serviceResponse.Data = _mapper.Map<GetCharacterDTO>(characters.FirstOrDefault(c => c.Id == id));
+            serviceResponse.Data = _mapper.Map<GetCharacterDTO>(characters.FirstOrDefault(c => c.CharacterId == id));
 
             return serviceResponse;
         }

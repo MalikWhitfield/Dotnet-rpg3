@@ -4,7 +4,7 @@ namespace Dotnet_rpg3.Models
 {
     public class Athlete
     {
-        public int Id { get; set; }
+        public int AthleteId { get; set; }
         public string FirstName { get; set; }
         public string LAstName { get; set; }
         public Year Year { get; set; }

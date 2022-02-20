@@ -3,7 +3,7 @@ namespace Dotnet_rpg3.Models
 {
     public class Character
     {
-        public int Id { get; set; }
+        public int CharacterId { get; set; }
         public string Name { get; set; } = "malik";
 
         public int Strength { get; set; }

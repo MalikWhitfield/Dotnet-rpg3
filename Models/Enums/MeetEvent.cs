@@ -6,7 +6,16 @@ namespace Dotnet_rpg3.Models.Enums
         TwonHundredMeter,
         FourHunderedMeter,
         FourBy1Relay,
-        FourBy4Relay
+        FourBy4Relay,
+        Javelin,
+        Discuss,
+        Hammer,
+        Longjump,
+        TripleJump,
+        HighJump,
+        FifteenHundred,
+        FiveK,
+        TenK
 
 
     }

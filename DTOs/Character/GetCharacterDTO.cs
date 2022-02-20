@@ -4,7 +4,7 @@ namespace Dotnet_rpg3.DTOs.Character
 {
     public class GetCharacterDTO
     {
-        public int Id { get; set; }
+        public int CharacterId { get; set; }
         public string Name { get; set; } = "malik";
 
         public int Strength { get; set; }

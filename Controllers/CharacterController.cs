@@ -26,7 +26,7 @@ namespace Dotnet_rpg3.Controllers
             new Character(),
             new Character()
             {
-                Id = 1,
+                CharacterId = 1,
                 Name = "Ni"
             }
         };
