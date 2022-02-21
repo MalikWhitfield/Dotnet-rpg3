@@ -11,11 +11,11 @@ namespace Dotnet_rpg3.Controllers
     [ApiController]
     [Route("[controller]")]
 
-    public class PracticeController : ControllerBase
+    public class PracticeResultController : ControllerBase
     {
         private readonly IPracticeResultService _practiceResultSErvice;
 
-        public PracticeController(IPracticeResultService practiceResultService)
+        public PracticeResultController(IPracticeResultService practiceResultService)
         {
             _practiceResultSErvice = practiceResultService;
         }
