@@ -5,7 +5,7 @@ using Dotnet_rpg3.Models;
 
 namespace Dotnet_rpg3.Services.Meet
 {
-    public interface IMeetService
+    public interface IMeetResultService
     {
         Task<ServiceResponse<List<MeetResultDTO>>> GetAll();
         Task<ServiceResponse<MeetResultDTO>> GetById(int id);

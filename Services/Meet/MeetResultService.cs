@@ -7,7 +7,7 @@ using Dotnet_rpg3.Models;
 
 namespace Dotnet_rpg3.Services.Meet
 {
-    public class MeetResultService : IMeetService
+    public class MeetResultService : IMeetResultService
     {
         private readonly IMapper _mapper;
 
@@ -21,12 +21,12 @@ namespace Dotnet_rpg3.Services.Meet
                 new MeetResultDTO{
                     MeetResultId = 1,
                     AthleteId = 11,
-                    HeatType = 1
+                    HeatType = Models.Enums.HeatType.Prelims
                 },
                 new MeetResultDTO{
-                    MeetResultId = 1,
+                    MeetResultId = 2,
                     AthleteId = 22,
-                    HeatType = 1
+                    HeatType = Models.Enums.HeatType.Finals
                 }
 
         };
