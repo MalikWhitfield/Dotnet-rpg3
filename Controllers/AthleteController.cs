@@ -46,5 +46,10 @@ namespace Dotnet_rpg3.Controllers
             return Ok(await _athleteService.Delete(id));
         }
 
+        [HttpPut]
+        public async Task<ActionResult<ServiceResponse<List<AthleteDTO>>>> Update(UpdateAthleteDTO updateAthleteDTO)
+        {
+            return Ok(await _athleteService.Update(updateAthleteDTO));
+        }
     }
 }

@@ -65,5 +65,23 @@ namespace Dotnet_rpg3.Services.AthleteService
 
             return serviceResponse;
         }
+
+        public async Task<ServiceResponse<AthleteDTO>> Update(UpdateAthleteDTO updateAthlete)
+        {
+            var serviceResponse = new ServiceResponse<AthleteDTO>();
+            var athlete = await _context.Athletes.FirstOrDefaultAsync(a => a.AthleteId == updateAthlete.AthleteId);
+
+            athlete.Bio = updateAthlete.Bio;
+            athlete.Event = updateAthlete.Event;
+            athlete.FirstName = updateAthlete.FirstName;
+            athlete.LastName = updateAthlete.LAstName;
+            athlete.Year = updateAthlete.Year;
+            await _context.SaveChangesAsync();
+
+            serviceResponse.Data = _mapper.Map<AthleteDTO>(athlete);
+
+
+            return serviceResponse;
+        }
     }
 }

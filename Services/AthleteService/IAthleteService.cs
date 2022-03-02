@@ -12,5 +12,7 @@ namespace Dotnet_rpg3.Services.AthleteService
         Task<ServiceResponse<AthleteDTO>> GetById(Guid id);
         Task<ServiceResponse<List<AthleteDTO>>> Create(AddAthleteDTO newAthlete);
         Task<ServiceResponse<List<AthleteDTO>>> Delete(Guid id);
+        Task<ServiceResponse<AthleteDTO>> Update(UpdateAthleteDTO updateAthlete);
+
     }
 }
