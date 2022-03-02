@@ -16,6 +16,6 @@ namespace Dotnet_rpg3.Data
         public DbSet<Athlete> Athletes { get; set; }
         public DbSet<MeetResult> MeetResults { get; set; }
         public DbSet<PracticeResult> PracticeResults { get; set; }
-
+        public DbSet<User> Users { get; set; }
     }
 }

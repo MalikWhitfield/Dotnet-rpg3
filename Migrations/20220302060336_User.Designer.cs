@@ -4,14 +4,16 @@ using Dotnet_rpg3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Dotnet_rpg3.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220302060336_User")]
+    partial class User
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,12 +84,7 @@ namespace Dotnet_rpg3.Migrations
                     b.Property<int>("Strength")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("CharacterId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Characters");
                 });
@@ -238,19 +235,10 @@ namespace Dotnet_rpg3.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Dotnet_rpg3.Models.Character", b =>
-                {
-                    b.HasOne("Dotnet_rpg3.Models.User", "User")
-                        .WithMany("Characters")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Dotnet_rpg3.Models.Track.MeetResult", b =>
                 {
                     b.HasOne("Dotnet_rpg3.Models.Athlete", "Athlete")
-                        .WithMany("MeetResults")
+                        .WithMany()
                         .HasForeignKey("AthleteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -269,24 +257,12 @@ namespace Dotnet_rpg3.Migrations
             modelBuilder.Entity("Dotnet_rpg3.Models.Track.PracticeResult", b =>
                 {
                     b.HasOne("Dotnet_rpg3.Models.Athlete", "Athlete")
-                        .WithMany("PracticeResults")
+                        .WithMany()
                         .HasForeignKey("AthleteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Athlete");
-                });
-
-            modelBuilder.Entity("Dotnet_rpg3.Models.Athlete", b =>
-                {
-                    b.Navigation("MeetResults");
-
-                    b.Navigation("PracticeResults");
-                });
-
-            modelBuilder.Entity("Dotnet_rpg3.Models.User", b =>
-                {
-                    b.Navigation("Characters");
                 });
 #pragma warning restore 612, 618
         }
