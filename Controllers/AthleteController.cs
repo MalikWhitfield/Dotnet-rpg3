@@ -40,5 +40,11 @@ namespace Dotnet_rpg3.Controllers
             return Ok(await _athleteService.Create(newAthlete));
         }
 
+        [HttpDelete]
+        public async Task<ActionResult<ServiceResponse<List<AthleteDTO>>>> Delete(Guid id)
+        {
+            return Ok(await _athleteService.Delete(id));
+        }
+
     }
 }

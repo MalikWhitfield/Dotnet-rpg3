@@ -19,7 +19,6 @@ namespace Dotnet_rpg3.Services.AthleteService
         {
             _context = context;
             _mapper = mapper;
-
         }
 
         public async Task<ServiceResponse<List<AthleteDTO>>> GetAll()
@@ -34,8 +33,9 @@ namespace Dotnet_rpg3.Services.AthleteService
         public async Task<ServiceResponse<AthleteDTO>> GetById(Guid id)
         {
             var serviceResponse = new ServiceResponse<AthleteDTO>();
+
             var athlete = await _context.Athletes.FirstOrDefaultAsync(a => a.AthleteId == id);
-            // serviceResponse.Data = Athletes.FirstOrDefault(c => c.AthleteId == id);
+            serviceResponse.Data = _mapper.Map<AthleteDTO>(athlete);
 
             return serviceResponse;
         }
@@ -43,9 +43,11 @@ namespace Dotnet_rpg3.Services.AthleteService
         public async Task<ServiceResponse<List<AthleteDTO>>> Create(AddAthleteDTO newAthlete)
         {
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
-            // Athletes.Add(newAthlete);
 
-            // serviceResponse.Data = Athletes;
+            _context.Add(_mapper.Map<Athlete>(newAthlete));
+            await _context.SaveChangesAsync();
+
+            serviceResponse.Data = _context.Athletes.Select(a => _mapper.Map<AthleteDTO>(a)).ToList();
 
             return serviceResponse;
         }
@@ -54,7 +56,12 @@ namespace Dotnet_rpg3.Services.AthleteService
         public async Task<ServiceResponse<List<AthleteDTO>>> Delete(Guid id)
         {
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
-            // serviceResponse.Data = Athletes;
+            var athlete = await _context.Athletes.FirstOrDefaultAsync(a => a.AthleteId == id);
+
+            _context.Athletes.Remove(athlete);
+            await _context.SaveChangesAsync();
+
+            serviceResponse.Data = _context.Athletes.Select(a => _mapper.Map<AthleteDTO>(a)).ToList();
 
             return serviceResponse;
         }

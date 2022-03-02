@@ -17,6 +17,9 @@ namespace Dotnet_rpg3
             CreateMap<Athlete, AthleteDTO>().ReverseMap();
             CreateMap<AthleteDTO, AddAthleteDTO>().ReverseMap();
 
+            CreateMap<Athlete, AddAthleteDTO>().ReverseMap();
+
+
             CreateMap<PracticeResult, PracticeResultDTO>().ReverseMap();
             CreateMap<PracticeResultDTO, AddPracticeResultDTO>().ReverseMap();
 
