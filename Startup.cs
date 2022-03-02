@@ -44,6 +44,7 @@ namespace Dotnet_rpg3
             services.AddScoped<IPracticeResultService, PracticeResultService>();
             services.AddScoped<IMeetResultService, MeetResultService>();
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
