@@ -3,6 +3,7 @@ using Dotnet_rpg3.Models;
 using System.Threading.Tasks;
 using System.Linq;
 using Dotnet_rpg3.DTOs.Athlete;
+using System;
 
 namespace Dotnet_rpg3.Services.AthleteService
 {
@@ -10,11 +11,11 @@ namespace Dotnet_rpg3.Services.AthleteService
     {
         public List<AthleteDTO> Athletes = new List<AthleteDTO> {
             new AthleteDTO{
-                Id = 1,
+                Id = Guid.NewGuid(),
                 FirstName = "Leek"
             },
               new AthleteDTO{
-                Id = 2,
+                Id = Guid.NewGuid(),
                 FirstName = "Ni"
             }
         };
@@ -27,7 +28,7 @@ namespace Dotnet_rpg3.Services.AthleteService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<AthleteDTO>> GetById(int id)
+        public async Task<ServiceResponse<AthleteDTO>> GetById(Guid id)
         {
             var serviceResponse = new ServiceResponse<AthleteDTO>();
             serviceResponse.Data = Athletes.FirstOrDefault(c => c.Id == id);
@@ -46,7 +47,7 @@ namespace Dotnet_rpg3.Services.AthleteService
         }
 
 
-        public async Task<ServiceResponse<List<AthleteDTO>>> Delete(int id)
+        public async Task<ServiceResponse<List<AthleteDTO>>> Delete(Guid id)
         {
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
             serviceResponse.Data = Athletes;

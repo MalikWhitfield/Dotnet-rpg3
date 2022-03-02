@@ -20,13 +20,13 @@ namespace Dotnet_rpg3.Services.Meet
 
         public List<MeetResultDTO> meets = new List<MeetResultDTO> {
                 new MeetResultDTO{
-                    MeetResultId = 1,
-                    AthleteId = 11,
+                    MeetResultId = Guid.NewGuid(),
+                    AthleteId = Guid.NewGuid(),
                     HeatType = Models.Enums.HeatType.Prelims
                 },
                 new MeetResultDTO{
-                    MeetResultId = 2,
-                    AthleteId = 22,
+                    MeetResultId = Guid.NewGuid(),
+                    AthleteId = Guid.NewGuid(),
                     HeatType = Models.Enums.HeatType.Finals
                 }
 
@@ -50,7 +50,7 @@ namespace Dotnet_rpg3.Services.Meet
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<MeetResultDTO>>> Delete(int id)
+        public async Task<ServiceResponse<List<MeetResultDTO>>> Delete(Guid id)
         {
             var serviceResponse = new ServiceResponse<List<MeetResultDTO>>();
             try
@@ -78,7 +78,7 @@ namespace Dotnet_rpg3.Services.Meet
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<MeetResultDTO>> GetById(int id)
+        public async Task<ServiceResponse<MeetResultDTO>> GetById(Guid id)
         {
             var serviceResponse = new ServiceResponse<MeetResultDTO>();
             try
@@ -95,7 +95,7 @@ namespace Dotnet_rpg3.Services.Meet
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<MeetResultDTO>> GetAllByAthleteId(int id)
+        public async Task<ServiceResponse<MeetResultDTO>> GetAllByAthleteId(Guid id)
         {
             var serviceResponse = new ServiceResponse<MeetResultDTO>();
             try

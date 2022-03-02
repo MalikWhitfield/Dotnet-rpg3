@@ -4,7 +4,7 @@ namespace Dotnet_rpg3.DTOs.Track
 {
     public class AddPracticeResultDTO
     {
-        public int AthleteId { get; set; }
+        public Guid AthleteId { get; set; }
         public DateTime Date { get; set; }
         public string Drill { get; set; }
         public string Time { get; set; }

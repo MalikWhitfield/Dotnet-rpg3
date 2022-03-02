@@ -5,8 +5,8 @@ namespace Dotnet_rpg3.DTOs.Track
 {
     public class UpdateMeetResultDTO
     {
-        public int MeetResultId { get; set; }
-        public int AthleteId { get; set; }
+        public Guid MeetResultId { get; set; }
+        public Guid AthleteId { get; set; }
         public DateTime Date { get; set; }
         public MeetEvent Event { get; set; }
         public string Time { get; set; }

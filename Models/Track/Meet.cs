@@ -1,9 +1,11 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Dotnet_rpg3.Models.Track
 {
     public class Meet
     {
+        [Key]
         public Guid MeetId { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }

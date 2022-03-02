@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace Dotnet_rpg3.Models.Track
 {
     public class PracticeResult
     {
-        public int PracticeId { get; set; }
-        public int AthleteId { get; set; }
+        [Key]
+        public Guid PracticeId { get; set; }
+        public Guid AthleteId { get; set; }
         public DateTime Date { get; set; }
         public string Drill { get; set; }
         public string Time { get; set; }

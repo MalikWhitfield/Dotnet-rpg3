@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Dotnet_rpg3.DTOs.Track;
@@ -26,13 +27,13 @@ namespace Dotnet_rpg3.Controllers
         }
 
         [HttpGet("Athlete/{id}")]
-        public async Task<ActionResult<ServiceResponse<MeetResultDTO>>> GetByAthleteId(int id)
+        public async Task<ActionResult<ServiceResponse<MeetResultDTO>>> GetByAthleteId(Guid id)
         {
             return Ok(await _meetResultService.GetAllByAthleteId(id));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<MeetResultDTO>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<MeetResultDTO>>> GetById(Guid id)
         {
             return Ok(await _meetResultService.GetById(id));
         }
@@ -44,7 +45,7 @@ namespace Dotnet_rpg3.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<ServiceResponse<List<MeetResultDTO>>>> Delete(int id)
+        public async Task<ActionResult<ServiceResponse<List<MeetResultDTO>>>> Delete(Guid id)
         {
             return Ok(await _meetResultService.Delete(id));
         }

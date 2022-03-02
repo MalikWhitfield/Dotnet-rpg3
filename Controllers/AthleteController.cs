@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dotnet_rpg3.Services.AthleteService;
 using Dotnet_rpg3.DTOs.Athlete;
 using Dotnet_rpg3.Models;
+using System;
 
 namespace Dotnet_rpg3.Controllers
 {
@@ -28,7 +29,7 @@ namespace Dotnet_rpg3.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<AthleteDTO>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<AthleteDTO>>> GetById(Guid id)
         {
             return Ok(await _athleteService.GetById(id));
         }

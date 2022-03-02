@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,13 +18,13 @@ namespace Dotnet_rpg3.Services.PracticeResultService
         }
         public List<PracticeResultDTO> practices = new List<PracticeResultDTO> {
                 new PracticeResultDTO{
-                    PracticeId = 1,
-                    AthleteId = 11,
+                    PracticeId = Guid.NewGuid(),
+                    AthleteId = Guid.NewGuid(),
                     RepNumber = 1
                 },
                 new PracticeResultDTO{
-                    PracticeId = 2,
-                    AthleteId = 22,
+                    PracticeId = Guid.NewGuid(),
+                    AthleteId = Guid.NewGuid(),
                     RepNumber = 2
                 }
 
@@ -37,7 +38,7 @@ namespace Dotnet_rpg3.Services.PracticeResultService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<PracticeResultDTO>>> Delete(int id)
+        public async Task<ServiceResponse<List<PracticeResultDTO>>> Delete(Guid id)
         {
             var serviceResponse = new ServiceResponse<List<PracticeResultDTO>>();
             var toDelete = practices.FindIndex(p => p.PracticeId == id);
@@ -56,7 +57,7 @@ namespace Dotnet_rpg3.Services.PracticeResultService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<PracticeResultDTO>> GetById(int id)
+        public async Task<ServiceResponse<PracticeResultDTO>> GetById(Guid id)
         {
             var serviceResponse = new ServiceResponse<PracticeResultDTO>();
             serviceResponse.Data = _mapper.Map<PracticeResultDTO>(practices.FirstOrDefault(c => c.PracticeId == id));
@@ -64,7 +65,7 @@ namespace Dotnet_rpg3.Services.PracticeResultService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<PracticeResultDTO>> GetAllByAthleteId(int id)
+        public async Task<ServiceResponse<PracticeResultDTO>> GetAllByAthleteId(Guid id)
         {
             var serviceResponse = new ServiceResponse<PracticeResultDTO>();
             serviceResponse.Data = _mapper.Map<PracticeResultDTO>(practices.Find(c => c.AthleteId == id));

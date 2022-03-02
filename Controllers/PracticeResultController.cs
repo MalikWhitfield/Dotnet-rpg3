@@ -27,13 +27,13 @@ namespace Dotnet_rpg3.Controllers
         }
 
         [HttpGet("Athlete/{id}")]
-        public async Task<ActionResult<ServiceResponse<PracticeResultDTO>>> GetByAthleteId(int id)
+        public async Task<ActionResult<ServiceResponse<PracticeResultDTO>>> GetByAthleteId(Guid id)
         {
             return Ok(await _practiceResultSErvice.GetAllByAthleteId(id));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ServiceResponse<PracticeResultDTO>>> GetById(int id)
+        public async Task<ActionResult<ServiceResponse<PracticeResultDTO>>> GetById(Guid id)
         {
             return Ok(await _practiceResultSErvice.GetById(id));
         }
@@ -45,7 +45,7 @@ namespace Dotnet_rpg3.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<ServiceResponse<List<PracticeResultDTO>>>> Delete(int id)
+        public async Task<ActionResult<ServiceResponse<List<PracticeResultDTO>>>> Delete(Guid id)
         {
             return Ok(await _practiceResultSErvice.Delete(id));
         }
