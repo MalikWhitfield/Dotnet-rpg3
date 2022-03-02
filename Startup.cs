@@ -14,6 +14,8 @@ using Dotnet_rpg3.Services.CharacterService;
 using Dotnet_rpg3.Services.AthleteService;
 using AutoMapper;
 using Dotnet_rpg3.Services.PracticeResultService;
+using Dotnet_rpg3.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dotnet_rpg3
 {
@@ -29,7 +31,9 @@ namespace Dotnet_rpg3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddDbContext<DataContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

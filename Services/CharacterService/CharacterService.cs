@@ -49,7 +49,16 @@ namespace Dotnet_rpg3.Services.CharacterService
         public async Task<ServiceResponse<CharacterDTO>> GetById(int id)
         {
             var serviceResponse = new ServiceResponse<CharacterDTO>();
-            serviceResponse.Data = _mapper.Map<CharacterDTO>(characters.FirstOrDefault(c => c.CharacterId == id));
+            try
+            {
+                serviceResponse.Data = _mapper.Map<CharacterDTO>(characters.FirstOrDefault(c => c.CharacterId == id));
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Message = "Character not found.";
+
+            }
 
             return serviceResponse;
         }
@@ -79,6 +88,7 @@ namespace Dotnet_rpg3.Services.CharacterService
             return serviceResponse;
 
         }
+
 
     }
 }

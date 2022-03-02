@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,8 +35,17 @@ namespace Dotnet_rpg3.Services.Meet
         public async Task<ServiceResponse<List<MeetResultDTO>>> Create(AddMeetResultDTO newMeetResult)
         {
             var serviceResponse = new ServiceResponse<List<MeetResultDTO>>();
-            meets.Add(_mapper.Map<MeetResultDTO>(newMeetResult));
-            serviceResponse.Data = meets.Select(c => _mapper.Map<MeetResultDTO>(c)).ToList();
+            try
+            {
+                meets.Add(_mapper.Map<MeetResultDTO>(newMeetResult));
+                serviceResponse.Data = meets.Select(c => _mapper.Map<MeetResultDTO>(c)).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Data = null;
+                serviceResponse.Message = "Error creating meet result";
+            }
 
             return serviceResponse;
         }
@@ -43,11 +53,20 @@ namespace Dotnet_rpg3.Services.Meet
         public async Task<ServiceResponse<List<MeetResultDTO>>> Delete(int id)
         {
             var serviceResponse = new ServiceResponse<List<MeetResultDTO>>();
-            var toDelete = meets.FindIndex(p => p.MeetResultId == id);
+            try
+            {
+                var meetResult = meets.First(m => m.MeetResultId == id);
+                meets.Remove(meetResult);
+                serviceResponse.Data = meets;
 
-            meets.RemoveAt(toDelete);
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Data = null;
+                serviceResponse.Message = "Error deleting meet result";
+            }
 
-            serviceResponse.Data = meets;
+
             return serviceResponse;
         }
 
@@ -62,7 +81,16 @@ namespace Dotnet_rpg3.Services.Meet
         public async Task<ServiceResponse<MeetResultDTO>> GetById(int id)
         {
             var serviceResponse = new ServiceResponse<MeetResultDTO>();
-            serviceResponse.Data = _mapper.Map<MeetResultDTO>(meets.FirstOrDefault(c => c.MeetResultId == id));
+            try
+            {
+                serviceResponse.Data = _mapper.Map<MeetResultDTO>(meets.FirstOrDefault(c => c.MeetResultId == id));
+            }
+
+            catch (Exception ex)
+            {
+                serviceResponse.Data = null;
+                serviceResponse.Message = "Meet Result not found";
+            }
 
             return serviceResponse;
         }
@@ -70,9 +98,37 @@ namespace Dotnet_rpg3.Services.Meet
         public async Task<ServiceResponse<MeetResultDTO>> GetAllByAthleteId(int id)
         {
             var serviceResponse = new ServiceResponse<MeetResultDTO>();
-            serviceResponse.Data = _mapper.Map<MeetResultDTO>(meets.Find(c => c.AthleteId == id));
+            try
+            {
+                serviceResponse.Data = _mapper.Map<MeetResultDTO>(meets.Find(c => c.AthleteId == id));
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Data = null;
+                serviceResponse.Message = $"Meets not found by Athlete Id {id}";
+            }
+            return serviceResponse;
+
+        }
+
+        public async Task<ServiceResponse<MeetResultDTO>> Update(UpdateMeetResultDTO updateMeetResultDTO)
+        {
+            var serviceResponse = new ServiceResponse<MeetResultDTO>();
+            try
+            {
+                MeetResultDTO meetResult = meets.Find(m => m.MeetResultId == updateMeetResultDTO.MeetResultId);
+                serviceResponse.Data = _mapper.Map<MeetResultDTO>(meets);
+
+            }
+            catch (Exception ex)
+            {
+                serviceResponse.Data = null;
+                serviceResponse.Message = "Meet Result not found";
+            }
 
             return serviceResponse;
+
         }
     }
 }
