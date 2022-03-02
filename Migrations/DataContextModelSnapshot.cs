@@ -21,10 +21,9 @@ namespace Dotnet_rpg3.Migrations
 
             modelBuilder.Entity("Dotnet_rpg3.Models.Athlete", b =>
                 {
-                    b.Property<int>("AthleteId")
+                    b.Property<Guid>("AthleteId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Bio")
                         .HasColumnType("nvarchar(max)");
@@ -41,7 +40,7 @@ namespace Dotnet_rpg3.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LAstName")
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
@@ -88,6 +87,38 @@ namespace Dotnet_rpg3.Migrations
                     b.ToTable("Characters");
                 });
 
+            modelBuilder.Entity("Dotnet_rpg3.Models.Track.Meet", b =>
+                {
+                    b.Property<Guid>("MeetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MeetId");
+
+                    b.ToTable("Meet");
+                });
+
             modelBuilder.Entity("Dotnet_rpg3.Models.Track.MeetResult", b =>
                 {
                     b.Property<Guid>("MeetResultId")
@@ -118,6 +149,9 @@ namespace Dotnet_rpg3.Migrations
                     b.Property<int?>("HeatType")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("MeetId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Time")
                         .HasColumnType("nvarchar(max)");
 
@@ -128,6 +162,10 @@ namespace Dotnet_rpg3.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("MeetResultId");
+
+                    b.HasIndex("AthleteId");
+
+                    b.HasIndex("MeetId");
 
                     b.ToTable("MeetResults");
                 });
@@ -170,7 +208,39 @@ namespace Dotnet_rpg3.Migrations
 
                     b.HasKey("PracticeId");
 
+                    b.HasIndex("AthleteId");
+
                     b.ToTable("PracticeResults");
+                });
+
+            modelBuilder.Entity("Dotnet_rpg3.Models.Track.MeetResult", b =>
+                {
+                    b.HasOne("Dotnet_rpg3.Models.Athlete", "Athlete")
+                        .WithMany()
+                        .HasForeignKey("AthleteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Dotnet_rpg3.Models.Track.Meet", "Meet")
+                        .WithMany()
+                        .HasForeignKey("MeetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Athlete");
+
+                    b.Navigation("Meet");
+                });
+
+            modelBuilder.Entity("Dotnet_rpg3.Models.Track.PracticeResult", b =>
+                {
+                    b.HasOne("Dotnet_rpg3.Models.Athlete", "Athlete")
+                        .WithMany()
+                        .HasForeignKey("AthleteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Athlete");
                 });
 #pragma warning restore 612, 618
         }

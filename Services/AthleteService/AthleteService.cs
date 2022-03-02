@@ -4,26 +4,29 @@ using System.Threading.Tasks;
 using System.Linq;
 using Dotnet_rpg3.DTOs.Athlete;
 using System;
+using AutoMapper;
+using Dotnet_rpg3.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dotnet_rpg3.Services.AthleteService
 {
     public class AthleteService : IAthleteService
     {
-        public List<AthleteDTO> Athletes = new List<AthleteDTO> {
-            new AthleteDTO{
-                Id = Guid.NewGuid(),
-                FirstName = "Leek"
-            },
-              new AthleteDTO{
-                Id = Guid.NewGuid(),
-                FirstName = "Ni"
-            }
-        };
+        private readonly IMapper _mapper;
+        private readonly DataContext _context;
+
+        public AthleteService(IMapper mapper, DataContext context)
+        {
+            _context = context;
+            _mapper = mapper;
+
+        }
 
         public async Task<ServiceResponse<List<AthleteDTO>>> GetAll()
         {
+            var athletes = await _context.Athletes.ToListAsync();
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
-            serviceResponse.Data = Athletes;
+            serviceResponse.Data = athletes.Select(a => _mapper.Map<AthleteDTO>(a)).ToList();
 
             return serviceResponse;
         }
@@ -31,7 +34,8 @@ namespace Dotnet_rpg3.Services.AthleteService
         public async Task<ServiceResponse<AthleteDTO>> GetById(Guid id)
         {
             var serviceResponse = new ServiceResponse<AthleteDTO>();
-            serviceResponse.Data = Athletes.FirstOrDefault(c => c.Id == id);
+            var athlete = await _context.Athletes.FirstOrDefaultAsync(a => a.AthleteId == id);
+            // serviceResponse.Data = Athletes.FirstOrDefault(c => c.AthleteId == id);
 
             return serviceResponse;
         }
@@ -41,7 +45,7 @@ namespace Dotnet_rpg3.Services.AthleteService
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
             // Athletes.Add(newAthlete);
 
-            serviceResponse.Data = Athletes;
+            // serviceResponse.Data = Athletes;
 
             return serviceResponse;
         }
@@ -50,7 +54,7 @@ namespace Dotnet_rpg3.Services.AthleteService
         public async Task<ServiceResponse<List<AthleteDTO>>> Delete(Guid id)
         {
             var serviceResponse = new ServiceResponse<List<AthleteDTO>>();
-            serviceResponse.Data = Athletes;
+            // serviceResponse.Data = Athletes;
 
             return serviceResponse;
         }

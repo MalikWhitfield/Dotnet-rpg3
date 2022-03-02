@@ -4,7 +4,7 @@ namespace Dotnet_rpg3.DTOs.Athlete
 {
     public class AthleteDTO
     {
-        public Guid Id { get; set; }
+        public Guid AthleteId { get; set; }
         public string FirstName { get; set; }
         public string LAstName { get; set; }
         public Year Year { get; set; }

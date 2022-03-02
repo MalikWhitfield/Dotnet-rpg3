@@ -1,12 +1,21 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Dotnet_rpg3.Models.Enums;
 
 namespace Dotnet_rpg3.Models.Track
 {
     public class MeetResult
     {
+        [Key]
         public Guid MeetResultId { get; set; }
+        [ForeignKey("MeetId")]
+        public Guid MeetId { get; set; }
+
+        public Meet Meet { get; set; }
         public Guid AthleteId { get; set; }
+        [ForeignKey("AthleteId")]
+        public Athlete Athlete { get; set; }
         public DateTime Date { get; set; }
         public MeetEvent Event { get; set; }
         public string Time { get; set; }
