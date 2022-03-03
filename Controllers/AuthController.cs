@@ -33,5 +33,21 @@ namespace Dotnet_rpg3.Controllers
 
             return Ok(response);
         }
+
+        [HttpPost("Login")]
+        public async Task<ActionResult<ServiceResponse<Guid>>> Login(UserLoginDTO request)
+        {
+            var response = await _authRepository.Login(
+                request.Username,
+                request.Password
+            );
+
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+
+            return Ok(response);
+        }
     }
 }

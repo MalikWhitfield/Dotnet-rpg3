@@ -12,9 +12,26 @@ namespace Dotnet_rpg3.Data
         {
             _context = context;
         }
-        public Task<ServiceResponse<string>> Login(string username, string password)
+        public async Task<ServiceResponse<Guid>> Login(string username, string password)
         {
-            throw new NotImplementedException();
+            var response = new ServiceResponse<Guid>();
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName.ToLower().Equals(username.ToLower()));
+
+            if (user == null)
+            {
+                response.Success = false;
+                response.Message = "Invalid username/password";
+            }
+            else if (!ValidatePassword(password, user.PasswordHash, user.PasswordSalt))
+            {
+                response.Success = false;
+                response.Message = "Invalid username/password";
+            }
+            else
+            {
+                response.Data = user.UserId;
+            }
+            return response;
         }
 
         public async Task<ServiceResponse<Guid>> Register(User user, string password)
@@ -54,8 +71,22 @@ namespace Dotnet_rpg3.Data
             {
                 passwordSalt = hmac.Key;
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+        }
 
-
+        private bool ValidatePassword(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != passwordHash[i])
+                    {
+                        return false;
+                    }
+                }
+                return true;
             }
         }
     }
